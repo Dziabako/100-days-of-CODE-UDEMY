@@ -1,9 +1,9 @@
 import requests
 from datetime import datetime as dt
 
-USERNAME = "dawidio"
-TOKEN = "sjdfhjkbvkuyrkzhf7893bb"
-GRAPH_ID = "graph2"
+USERNAME = "username"
+TOKEN = "token"
+GRAPH_ID = "graphid"
 headers = {
     "X-USER-TOKEN": TOKEN,
 }
