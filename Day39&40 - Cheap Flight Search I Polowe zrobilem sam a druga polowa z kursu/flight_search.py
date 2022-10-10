@@ -5,7 +5,7 @@ from flight_data import FlightData
 
 API_ENDPOINT = "https://api.tequila.kiwi.com"
 HEADERS = {
-    "apikey": "qKZBSZi2U0ko5lJj-YYdmkrPxQo0FU-W"
+    "apikey": "APIKEY"
 }
 
 
