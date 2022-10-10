@@ -3,11 +3,11 @@ from datetime import datetime
 import smtplib
 import time
 
-MY_LAT = 52.313881
-MY_LONG = 15.082800
+MY_LAT = lat
+MY_LONG = long
 
-my_email = "dawidtest315@gmail.com"
-password = "ahbzwewvvugqmmig"
+my_email = "mail@gmail.com"
+password = "password"
 
 response = requests.get(url="http://api.open-notify.org/iss-now.json")
 response.raise_for_status()
@@ -42,6 +42,6 @@ while True:
                 connection.login(user=my_email, password=password)
                 connection.sendmail(
                     from_addr=my_email,
-                    to_addrs="dawidtest@yahoo.com",
+                    to_addrs="mail@yahoo.com",
                     msg="Subject:ISS IS CLOSE\nLOOK UP"
                 )
