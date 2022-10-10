@@ -1,0 +1,167 @@
+CSS - cascading style sheets
+Jezyk uzywany wylacznie to stylizowania strony html
+
+Zanim dodamy jakikolwiek kod css to jest juz uzywany domyslny kod css
+google --> browser default css
+
+
+## PRZYKLAD ## IN LINE CSS ##
+
+<!--style bierze jako dane wejsciowe kod css / jest to inline styling-->
+<body>
+<!--W zdjeciu moze byc link lub sciezka lokalna / cellspacing to przestrrzen wyrazana w % pomiedzy komorkami i
+wierszami-->
+    <table cellspacing="20">
+        <tr>
+            <td><img src="pobrane.png" alt="Example"></td>
+            <td>
+
+
+
+## PRZYKLAD ## INTERNAL CSS ##
+
+<head>
+<!--meta to informacje jak ma sie renderowac dana strona-->
+    <meta charset="UTF-8">
+    <title>Dawid Personal Site</title>
+<!--Sposob na zmiane wygladu poszczegolnych elementow strony przy wykorzystaniu css / internal css-->
+<!--Ustawianie kropkowaej lini bez dolnej i bocznych krawedzi-->
+<!--Jezeli stylizujemy przy uzyciu css nie moze byc uzyty stylizowanie html-->
+<!--Zeby tego uzyc w innym plikach html nalezy to skopiowac / Jest latwiejsza metoda do tego-->
+    <style>
+        body {
+            background-color: powderblue;
+        }
+
+        hr {
+            border-style: dotted none none none;
+            border-color: grey;
+            border-width: 10px;
+            width: 5%
+        }
+
+    </style>
+</head>
+
+
+
+## PRZYKLAD ## EXTERNAL CSS ## Wszystko ze style znajduje sie w pliku styles.css
+<!--EXTERNAL CSS-->
+    <link rel="stylesheet" href="./css/styles.css">
+
+
+Przy debugowaniu dobrze jest uzyac chrome developers tools
+3 kropki --> wiecej narzedzi --> narzedzia dla deweloperow
+Pomaga to nam znalezc mniej wiecej co jest nie tak
+
+## CSS Syntax ##
+selector {property: value;}
+Przy duzej ilosc property przy danym selectorze jest ustawiac je alfabetycznie
+
+## Class selector ##
+<selector class="class">
+selector.class {property: value;}
+LUB
+.class {property: value;}
+
+## ID selector ##
+<selector id="nazwa">
+#nazwa {propert: value}
+
+ID moze byc tylko jedno (nazwy nie moga sie powtarzac)
+Uzywane do identyfikacji elementow ktore sa pojedyncze na danej stronie
+
+Class mozna przydzielic do kilku elementow ta sama nazwa
+Czyli do elementow powiazanych ktore beda mialy te same wlasciwosci
+Moze miec dwuczlonowa nazwe przez co mozna uzyc kazdego czlonu osobno do stylizowania css
+
+W obu przypadkach robia one to samo
+
+## SUDO CLASES ##
+Kazdy element ma dany status
+element:sudo class
+W ten sposob elementy na stronie moga sie zmieniac w rozny sposob w zaleznosci od danej klasy sudo
+Np. po najechaniu myszka beda zmieniac kolor
+Tworzy sie wtedy na nowo dana funkcjonalnosc
+selector:sudo_class {property: value;}
+
+<div><\div> pozwala nam podzielic kod html na poszczegolne bloki i odpowiednio je formatowac
+
+Strony sa tworzone w tzw box model
+Oznacza to ze kazdy element na stronie to box, ktory możemy edytowac
+Margin - odstep miedzy elementami
+Border - "obramowanie" boxu
+Padding - odleglosc miedzy border a zawartoscia boxu
+
+Image Display property
+Posiada 4 wartosci:
+ - BLock
+ - Inline
+ - Inline-BLock - ustawienie tego jako wartosci w display pozwala nam na zmiane width przy jednoczesnym wyswietlaniu obu elementow obok siebie
+ - None - usuwa dany element ze strony tak jakby nie istnial
+
+Common BLock elements (zajmuja caly wiersz):
+ - Paragraphs (<p>) - w paragrafach mozna zmienic wartosc display na inline przez co beda sie wyswietlaly w linii a nie jako bloki.
+ - Headers (<h1> through <h6>)
+ - Divisions (<div>)
+ - Lists and list items (<ul>, <ol> and <li>)
+ - Forms (<form>)
+
+<span> - pozwala nam zaznaczyc dany frament bloku i go formatowac
+
+Common Inline Elements:
+ - Spans (<span>)
+ - Image (<img>)
+ - Anchors (<a>)
+
+visibility: hidden - ukrywa dany element ale zachowuje jego pozycje
+
+## POZYCJONOWANIE STATYCZNE I RELATYWNE ##
+Główne zasady renderowania elementow na stronie:
+ - Kontent definiuje jak duze domyslnie dane elementy sa
+ - Hierarchia kodowania ma znaczenie przy pozycji elementow
+ - Elementy dziedziczne sa na wierzchu "rodzica"
+
+Zmiana pozycji:
+ - Static
+ - Relative
+ - Absolute
+ - Fixed
+
+## STATIC POSITION ##
+Wszystkie elementy html sa domyslnie pozycjonowane statycznie
+Oznacza to że są domyślnie pozycjonowane według standardów html
+
+## RELATIVE POSITION ##
+Pozwala nam na pozycjonowanie obiektu relatynie do pozycji jaką by miał statycznie
+Wykorzystywane sa koordynaty: top, bottom, left, right
+Pozycjonowanie w ten sposob nie wplywa w żaden sposob na pozycje pozostalych elementow
+Tworzy to pewnego rodzaju margines danego elementu
+
+## ABSOLUTE POSITION ##
+Pozycjonowanie elementu relatywnie do "rodzica"
+Czyli pozycjonujemy zagniezdzony element wzgledem bloku w którym jest on zagniezdzony
+Korzystanie z tego pozycjonowania wpływa na ustawienie elementów html na stronie
+
+## FIXED POSITION ##
+Pozycja danego elementu jest stała i pozostaje niezmienne nawet w momencie skrolowania strony
+
+font-family: 'Merriweather', serif;
+Powyższe oznacza iż najpierw przegladarka będzie próbowała użyc czcionki pierwszej
+Jeśli się nie uda użyje domyślnej czcionki z kategorii serif lub sans-serif
+
+1em - oznacza szerokosc czcionki rowna jednej szerokosci wielkiej litery M
+5em - 5 x szerokosc M
+
+Dzisiaj 1em = 16px
+
+Wartosci em oraz % zmieniaja sie dynamicznie jesli zmieniamy wielkosc czcionki w ustawieniach przegladarki
+Są one równiez dziedziczone przez co jesli np mamy okreslona wartosc em w body oraz h1 jedno na drugie sie nalozy na siebie
+W celu unikniecia tego problemu mozna uzyc 'rem' czyli root em, ktory ignoruje wartosc zawartą w 'rodzicu'. Jest to najbezpieczniejszy sposob na okreslanie wielkosci czcionki
+
+Wielkosc wyrazona w pikselach pozostaje bez zmian bez wzgledu na wielkosc czcionki ustawionej w ustawieniach przegladarki
+
+float - sluzy do ustawiania zdjecia po stronie tekstu (wrapping around)
+clear - blokuje mozliwosc ustawienia obiektu z okreslonej strony danego elementu
+
+Float nalezy uzywac tylko i wylacznie wedlug jego przeznaczenia czyli wrapping text around certain element. Nie nalezy uzyywac tego do pozycjonowania

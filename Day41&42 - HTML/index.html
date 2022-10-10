@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!--meta to informacje jak ma sie renderowac dana strona-->
+    <meta charset="UTF-8">
+    <title>Dawid Personal Site</title>
+</head>
+
+<body>
+<!--W zdjeciu moze byc link lub sciezka lokalna / cellspacing to przestrrzen wyrazana w % pomiedzy komorkami i
+wierszami-->
+    <table cellspacing="20">
+        <tr>
+            <td><img src="pobrane.png" alt="Example"></td>
+            <td>
+                <h1>Dawid Dzialak</h1>
+                <p>
+                    <i>Uczen</i>
+                </p>
+                <p>
+<!--Tworzenie odnosnikow w konkretnym slowie-->
+                    Ucze sie <strong><a href="https://google.com">programowac</a></strong>
+                </p>
+            </td>
+        </tr>
+    </table>
+<!--Tworzenie odstepu-->
+    <br>
+<!--Pozioma linia-->
+    <hr size="3" noshade>
+<!--Wykropkowana lista / Nieuporzadkowana-->
+    <h3>Education</h3>
+    <ul>
+        <li><a href="https://youtube.com">Pierwszy element</a></li>
+        <li>Drugi element</li>
+        <li>Trzeci element
+            <ul>
+                <li>Zagniezdzony element</li>
+            </ul>
+        </li>
+    </ul>
+<!--Uporzadkowana lista-->
+    <h3>My Hobbies</h3>
+    <ol>
+        <li><a href="https://youtube.com">Pierwszy element</a></li>
+        <li>Drugi element</li>
+        <li>Trzeci element
+            <ol>
+                <li>Zagniezdzony element</li>
+            </ol>
+        </li>
+    </ol>
+    <hr size="3" noshade>
+<!--Tworzenie tabel / Mozna wszystko zrobic bez uzyca thead,tbody,tfoot lecz w ten sposob nie mozna nic wyizolowac-->
+<!--Stylizowac tabele lepiej przy uzyciu CSS-->
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nazwa pierwszej kolumny</th>
+                <th>Nazwa drugiej kolumny</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Pierwsza komorka w pierwszym wierszu</td>
+            <td>Druga komorka w pierwszym wierszu</td>
+        </tr>
+        <tr>
+            <td>Pierwsza komorka w drugim wierszu</td>
+            <td>Druga komorka w drugim wierszu</td>
+        </tr>
+        </tbody>
+    </table>
+    <hr size="3" noshade>
+    <h3><strong>Skills</strong></h3>
+<!--Zagniezdzona tabela w innej rabeli / komorka w tabeli to inna tabela-->
+    <table border="1">
+        <tr>
+            <td>
+                <table cellspacing="10">
+                    <tr>
+                        <td>Gaming</td>
+                        <td>👍👍👍👍👍</td>
+                    </tr>
+                    <tr>
+                        <td>Gaming info</td>
+                        <td>👍👍👍👍</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table cellspacing="10">
+                    <tr>
+                        <td>Python Programming</td>
+                        <td>👍👍</td>
+                    </tr>
+                    <tr>
+                        <td>HTML programming</td>
+                        <td>👍</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <hr size="3" noshade="">
+    <a href="hobbies.html">My second hobbies</a>
+<!--Bez tego oba linki beda obok siebie-->
+    <br>
+    <a href="contact.html">My contact details</a>
+</body>
+
+</html>
