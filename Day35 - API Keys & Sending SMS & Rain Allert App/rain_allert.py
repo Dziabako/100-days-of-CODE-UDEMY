@@ -10,8 +10,8 @@ account_sid = "twilio account sid"
 auth_token = "twilio account token"
 
 parameters = {
-    "lat": 52.313881,
-    "lon": 15.082800,
+    "lat": lat,
+    "lon": long,
     "appid": "appid",
     "exclude": "current,minutely,daily"
 }
