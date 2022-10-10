@@ -21,8 +21,8 @@ to_mail = str(name_row.email.values[0])
 name = str(name_row.name.values[0])
 
 
-my_email = "dawidtest315@gmail.com"
-password = "ahbzwewvvugqmmig"
+my_email = "mail@gmail.com"
+password = "password"
 
 if month in birthday_month_list and day in birthday_day_list:
     with open(f"./Letter Templates/{random_letter}") as letter:
