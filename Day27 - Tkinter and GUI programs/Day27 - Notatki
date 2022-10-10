@@ -1,0 +1,2 @@
+*args - jest to nieograniczona liczba argumentow / inaczej krotka
+**kwargs - jest to nieograniczona liczba nazwanych argumentow / inaczej slownik

@@ -1,0 +1,20 @@
+API - application programming interface
+Jest to zbior komend, funkcji, protokolow oraz obiektow
+Ktorych programisci moga uzyc do tworzenia oprogramowania lub interakcji z systemami zewnetrznymi
+
+API Endpoint - lokalizacja gdzie dane, ktore nas interesuja, sa przechowywane
+Zwykle jest to adres URL --> api.coinbase.com
+
+API Request - system pomiedzy baza danych a uzytkownikiem do przetwarzania wywołań
+
+Kody odpowiedzi:
+•	1XX – informacyjne. Żądanie zainicjowane przez przeglądarkę jest kontynuowane. Nie jest normalnie widoczny w przeglądarce
+•	2XX – prawidłowe. Kody powodzenia zwracanie wtedy kiedy żądanie przeglądarki zostało pomyślnie odebrane, zrozumiane, a następnie przetworzone przez serwer bez błędu.
+          Nie jest normalnie widoczny w przeglądarce
+•	3XX – przekierowania. Pojawiają się, gdy nowa zawartość została zastąpiona żądanym zasobem. Nie jest normalnie widoczny w przeglądarce
+•	4XX – błąd po stronie klienta. Informują o wystąpieniu problemu z danym żądaniem np. użytkownik sieci błędnie zaadresował jakiś zasób
+•	5XX – błąd po stronie serwera np. serwer aplikacyjny działa poprawnie, lecz serwer bazodanowy nie działa poprawnie (po stronie użytkownika jest wszystko w porządku)
+
+API Parameters - sa to dane wejsciowe umozliwiajace uzyskanie roznych odpowiedzi z serwera w zaleznosci od potrzeby
+Nie wszystkie API posiadaja parametry
+

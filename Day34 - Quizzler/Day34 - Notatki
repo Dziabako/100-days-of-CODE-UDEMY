@@ -1,0 +1,6 @@
+Tekst w html jest czesto specjalnie kodowany
+https://www.w3schools.com/html/html_entities.asp
+
+Aby usunac to kodowanie nalezy uzyc
+import html
+html.unescape(tekst do odkodowania)

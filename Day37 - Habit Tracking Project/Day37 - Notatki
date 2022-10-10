@@ -1,0 +1,11 @@
+HTTP Requests:
+ - GET - uzyskanie jakies informacji z serwera
+ - POST - dodanie danych na serwer
+ - PUT - zaktualizowanie danych na serwerze
+ - DELETE - usuniecie danych z serwera
+
+### HEADERS ###
+Zawiera dane uzytkownika
+Uzywanie headerow jest bezpieczniejsze niz umieszcanie danych poufnych bezposrednio w linku
+
+

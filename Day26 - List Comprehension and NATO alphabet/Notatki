@@ -1,0 +1,96 @@
+List Comprehension jest unikatowe dla pythona
+Przyklad:
+new_list = [new_item for item in list]
+
+W skrocie polega to na skroceniu wielu linijek kodu w jedna
+Przykladowo tworzac nowa liste na podstawie starej mozemy skrocic do jednej linijki
+Nie musimy w taki sposob tworzyc pustej listy oraz petli for a nastepnie recznie dodawac kazdy element do nowej listy
+numbers = [1, 2, 3]
+new_numbers = [n + 1 for n in numbers]
+
+Podobnie sprawa ma sie z ciagami znakow
+name = "Dawid"
+letter_list = [letter for letter in name]
+
+Podwajanie liczb z podanego zakresu i tworzenie listy
+doubled_range = [n * 2 for n in range(1, 5)]
+
+Conditional List Comprehension
+To samo co wczesniej tylko ze na koniec dodajemy warunek
+names = ["Alex", "Beth", "Caroline", "Eleanor", "Dave", "Freddie", "Mark"]
+short_names = [name for name in names if len(name) < 5]
+uppercase_names = [name.upper() for name in names if len(name) > 5]
+
+
+
+Notatki z kursu
+#For Loop
+numbers = [1, 2, 3]
+new_list = []
+for n in numbers:
+    add_1 = n + 1
+    new_list.append(add_1)
+
+#List Comprehension
+new_list = [n + 1 for n in numbers]
+
+#String as List
+name = "Angela"
+letters_list = [letter for letter in name]
+
+#Range as List
+range_list = [n * 2 for n in range(1, 5)]
+
+#Conditional List Comprenhension
+names = ["Alex", "Beth", "Caroline", "Dave", "Elanor", "Freddie"]
+short_names = [name for name in names if len(name) < 5]
+
+upper_case_names = [name.upper() for name in names if len(name) > 4]
+
+#Dictionary Comprehension
+import random
+student_grades = {name: random.randint(1, 100) for name in names}
+print(student_grades)
+
+passed_students = {
+    student: grade
+    for (student, grade) in student_grades.items() if grade >= 60
+}
+print(passed_students)
+
+Kolejny przyklad z praca na plikach
+with open("file1.txt") as file1:
+    list1 = file1.readlines()
+
+with open("file2.txt") as file2:
+    list2 = file2.readlines()
+
+result = [int(n) for n in list1 if n in list2]
+
+print(result)
+
+Dictionary Comprehension
+To jest najprostsze opisanie dictionary comprehension
+new_dict = {new_key: new_value for item in list}
+
+Trudniejsza wersja
+Bierzemy wszystkie elementy ze slownika i iterujemy przez nie jako key, value
+new_dict = {new_key: new_value for (key, value) in dict.items()}
+new_dict = {new_key: new_value for (key, value) in dict.items() if test}
+
+Przyklady
+student uzywamy jako klucz i w formie wartosci jest funkcja ktora tworzy wartosc
+students_score = {student: random.randint(10, 101) for student in names}
+
+Bardziej zaawansowane
+passed_students = {student: score for (student, score) in students_score.items() if score > 60}
+
+Iterowanie po Pandas DataFrame
+Iterowanie przy uzyciu petli for nie jest zbyt przydatne, poniewaz nie uzyskujemy porzadanych wynikow
+Pandas ma wbudowana metode do iteracji
+
+Iterowanie po wiersszach
+W ten sposob iterujemy po bazie danych i uzyskujemy dane z kolejnyc wierszy ktore potem mozna wykorzystac
+Kazdy row to instancja pandas wiec mozna z niej korzystac tak jak wczesniej
+for (index, row) in data_frame.iterrows():
+    print(row.some_data)

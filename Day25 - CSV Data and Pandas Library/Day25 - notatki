@@ -1,0 +1,102 @@
+plik csv - comma separated values
+
+with open("weather_data.csv") as weather_data:
+    weather_data = weather_data.readlines()
+
+# Wbudowany modul do obslugi plikow csv
+# Niezbyt przydatne przy duzych bazach danych
+import csv
+
+with open("weather_data.csv") as data_file:
+    # w ten sposob towrzymy plik csv ktory mozemy wrzucic w petle for
+    # kazda linijka pliku to osobna lista z elementami
+    data = csv.reader(data_file)
+    temperatures = []
+    for row in data:
+        if row[1] != "temp":
+            temperatures.append(row[1])
+    print(temperatures)
+
+# Potezne narzedzie do pracy na duzych bazach danych
+import pandas
+
+# Tworzymy w ten sposob uporzadkowany zbior danych
+# Jest to tez pewnego rodzaju obiekt na ktorym bedziemy pracowac z modulem
+data = pandas.read_csv("weather_data.csv")
+
+# W ten sposob mozemy wyswietlic konkretna kolumne
+print(data["temp"])
+
+# DataFrame - jest to odpowiednik calej tabeli w pandas
+# Series - odpowiednik listy / pojedyncza kolumna
+
+# Tworzenie slownika z tabeli
+# Slownik zagniezdzony / elementy zagniezdzone maja klucze od 0 do konca elementow
+data_dict = data.to_dict()
+
+# Tworzenie slownika z konkretnymi kluczami oraz wartosciami
+# Wybierane sa konkretne wartosci z danej kolumny jako klucz a reszta wartosci z wiersza idzie jako value
+# Mozna w ten sposob tworzyc takze zagniezdzone slowniki
+nato_code_frame = pandas.read_csv("nato_phonetic_alphabet.csv")
+nato_dict = {row.letter: row.code for (index, row) in nato_code_frame.iterrows()}
+
+data = pandas.read_csv("birthdays.csv")
+birthdays_dict = {(data_row["month"], data_row["day"]): data_row for (index, data_row) in data.iterrows()}
+
+
+# Zamienianie pojedynczej kolumny w liste
+data_temp = data["temp"].to_list()
+print(data_temp)
+
+temp_average = sum(data_temp) / len(data_temp)
+print(round(temp_average, 2))
+
+# szukanie sredniej z wykorzystaniem modulu pandas
+print(round(data["temp"].mean(), 2))
+
+# wartosc maksymalna
+print(max(data_temp))
+print(data["temp"].max())
+
+# Pandas czytajac tabele uznaje nazwy kolumn jako atrybuty wiec mozna je wywolywac w podobny sposob
+# W taki sposob mozna wywolac kolumne
+print(data.condition)
+
+# Odczytywanie poszczegolnych wierszy w tabeli
+# W tabeli najpierw wywolywana jest tabela w ktorej chcemy szukac
+# Nastepnie wybierany jest wiersz z podana wartoscia w kolumnie
+# W ten sposob dostaniemy caly wiersz
+print(data[data.day == "Monday"])
+
+# Wiersz z tabeli posiadajacy najwyzsza temperature
+print(data[data.temp == data.temp.max()])
+
+# Uzyskiwanie konkretnej wartosci z konretnego wiersza
+# W ten sposob mamy 'obiekt wiersza' i mozemy w podobny sposob jak wczesniej uzyskac dane z danej kolumny
+monday = data[data.day == "Monday"]
+print(monday.condition)
+
+# Temperatura w F z tabeli
+temp_celsius = monday.temp
+temp_fahrenheit = temp_celsius * 1.8 + 32
+print(temp_fahrenheit)
+
+# Tworzenie nowej tabeli od zera przy uzyciu pandas
+data_dict = {
+    "students": ["Amy", "James", "Angela"],
+    "scores": [76, 56, 65],
+}
+data2 = pandas.DataFrame(data_dict)
+print(data2)
+
+# Taka swtorzona tabele mozna zapisac do pliku csv
+# W metodzie dana wejsciowa to sciezka zapisu pliku
+data2.to_csv("new_data.csv")
+
+W ten sposob uzyskujemy koordynaty na ekranie
+Funkcja nasluchuje kiedy klikniemy na ekranie i przekazyje pozycje do funkcji
+turtle.mainloop() sprawia ze ekran nie zamyka sie po kliknieciu
+def get_mouse_click_coor(x, y):
+    print(x, y)
+turtle.onscreenclick(get_mouse_click_coor)
+turtle.mainloop()

@@ -1,0 +1,95 @@
+SMTP - simple mail transfer protocol
+Jest to protokol na bazie ktorego dzialaja szkrzynki mailowe
+Zawiera zasady jak emaile sa przesylane miedzy roznymi serwerami i jak sa rozsylane w internecie
+
+Maile do nauki:
+dawidtest315@gmail.com - test234%
+dawidtest@yahoo.com - Testowy234%
+
+Serwery SMTP:
+Gmail: smtp.gmail.com
+Hotmail: smtp.live.com
+Outlook: outlook.office365.com
+Yahoo: smtp.mail.yahoo.com
+o2: smtp.poczta.o2.pl
+
+TLS - transport layer security
+Jest to sposob na zabiezpieczanie naszego maila i jesli ktos go przechwyci to bedzie on zaszyfrowany
+
+Przed skorzystaniem z tej mozliwosci wysylania maili nalezy najpierw skonfigurowac konto email
+
+Przykladowo Gmail domyslnie na to nie pozwala
+W gmail usunieta zostala tez funkcja less secure apps
+Dlatego trzeba wlaczyc autoryzacje 2 etapowa a nastepnie wygenerowac specjalne haslo do uzyskania dostapu do maila
+Security --> Signing in to Google --> App passwords
+
+W Yahoo rowniez trzeba ustawic less secure apps
+W tym celu rowniez generujemy specjalne haslo dostepu do uslugi przez inne aplikacje
+
+###   If you're using SSL, enter 465. If you're using TLS, enter 587.   ###
+
+##### ----------- WYSYLANIE MAILA PRZYKLAD ---------- ######
+import smtplib
+
+my_email = "dawidtest315@gmail.com"
+password = "ahbzwewvvugqmmig"
+
+
+## Tworzenie nowego obiektu smtlib do polaczenia z serwerem (w nawiasie podajemy dostawce uslugi)
+## Bez ustwienia portu na 587 nie bedzie dzialalo przez blad zwiazany prawdopodobnie z firewall na kompie
+connection = smtplib.SMTP("smtp.gmail.com", port=587)
+
+
+## Wlaczanie szyfrowania maila
+connection.starttls()
+
+
+## Logowanie do maila
+connection.login(user=my_email, password=password)
+
+
+## Wysylanie maila / msg - w ten sposob nasz mail bedzie mial tytul oraz tresc
+connection.sendmail(
+    from_addr=my_email,
+    to_addrs="dawidtest@yahoo.com",
+    msg="Subject:Hello\n\nThis is content of my email"
+)
+
+
+## Na koniec tak samo jak przy pracy na plikach zamykamy polaczenie
+connection.close()
+
+
+## Mozna to otworzyc w ten sam sposob jak to sie robi przy plikach
+with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
+    connection.starttls()
+    connection.login(user=my_email, password=password)
+    connection.sendmail(
+        from_addr=my_email,
+        to_addrs="dawidtest@yahoo.com",
+        msg="Subject:Hello\n\nThis is content of my email"
+    )
+
+
+
+##### ------------------------ DATETIME ------------------------ #####
+import datetime as dt
+
+# Aktualna data i czas z komputera / w ten sposob tworzymy obiekt na ktorym mozna pracowac
+now = dt.datetime.now()
+
+# W ten sposob mozemy dostac sie do poszczegolnych danych czasowych
+hour = now.hour
+minutes = now.minute
+seconds = now.second
+year = now.year
+
+# W tym przypadku zwracany jest numer dnia tygodnia zamiast jego nazwy / liczone od 0
+day_of_week = now.weekday()
+print(day_of_week)
+
+
+# Tworzenie obiektu z konkretna data / mozna nawet wpisac konkretna godzine
+date_of_birth = dt.datetime(year=1994, month=3, day=29)
+weekday = date_of_birth.weekday()
+print(weekday)

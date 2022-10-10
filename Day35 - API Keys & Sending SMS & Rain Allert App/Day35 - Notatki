@@ -1,0 +1,38 @@
+Niektore API z bardziej zaawansowanymi danymi wymagaja autoryzacji
+Np. Potwierdzenia o dokonaniu oplaty za usluge
+Lecz jesli chcemy najpierw przetestowac dana usluge to zwykle jest dostepna darmowa wersja tego API
+W celu nie wykorzystywania tego zbyt bardzo wykorzystuje sie API Keys
+
+API Keys - cos w rodzaju numeru konta i hasla do niego
+W ten sposob dostawca uslugi moze sprawdzic jak bardzo wykorzystujemy dane API
+Dzieki temu dostawca moze zabronic nam dostepu do uslugi jesli zostanie przekroczony okreslony darmowy limit
+
+### PRZYKLAD ###
+import requests
+
+parameters = {
+    "lat": 52.313881,
+    "lon": 15.082800,
+    "appid": "da362036b4d95fe3d212eefdbb1b2fa0",
+}
+
+response = requests.get("https://api.openweathermap.org/data/2.5/onecall", params=parameters)
+status = response.status_code
+print(status)
+
+data = response.json()
+print(data)
+
+### PRZYKLAD ###
+
+https://www.pythonanywhere.com/ - strona umozliwiajaca uruchamianie kody python w chmurze
+Darmowi uzytkownicy moga miec tylko jeden skrypt uruchomiony na raz
+Mozna ustawic godzine o ktorej ma sie uruchamiac dany skrypt
+
+### ZMIENNE SRODOWISKOWE ###
+
+Terminal --> set
+Uzywane dla wygody przy duzych aplikacjach przy aktualizowaniu zmiennych bez fizycznej ingerencji w kod programu
+Bezpieczenstwo - przechowywanie istotnych danych poza glownym kodem
+Pozwalaja one na zdecydowanie gdzie przechowywane sa dane poufne z dala od glownego kodu
+https://stackoverflow.com/questions/42708389/how-to-set-environment-variables-in-pycharm
