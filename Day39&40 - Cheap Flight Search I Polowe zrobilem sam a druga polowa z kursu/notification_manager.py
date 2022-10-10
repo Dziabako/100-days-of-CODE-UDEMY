@@ -3,12 +3,12 @@ from twilio.rest import Client
 import smtplib
 
 # To jest do twilio
-account_sid = "AC4d1a0b54cc08ca9c1bc68f0295a9906a"
-auth_token = "875812ca149039517660b28358ae5235"
+account_sid = "ACCOUNT SID"
+auth_token = "AUTH TOKEN"
 
 # Gmail
-my_email = "dawidtest315@gmail.com"
-password = "ahbzwewvvugqmmig"
+my_email = "mail@gmail.com"
+password = "password"
 
 
 class NotificationManager:
@@ -18,8 +18,8 @@ class NotificationManager:
     def send_message(self, message):
         text_message = self.client.messages.create(
             body=message,
-            from_='+48732106918',
-            to='+48666532414'
+            from_='number',
+            to='number'
         )
         # Sprawdzanie czy zostalo wyslane pomyslnie
         print(text_message.sid)
@@ -31,6 +31,6 @@ class NotificationManager:
             connection.login(user=my_email, password=password)
             connection.sendmail(
                 from_addr=my_email,
-                to_addrs="dawidtest@yahoo.com",
+                to_addrs="mail@yahoo.com",
                 msg=f"Subject:Flight Alert!\n{message}"
             )
