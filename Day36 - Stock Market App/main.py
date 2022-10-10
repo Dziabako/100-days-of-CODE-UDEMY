@@ -3,8 +3,8 @@ import datetime as dt
 from twilio.rest import Client
 
 # To jest do twilio
-account_sid = "AC4d1a0b54cc08ca9c1bc68f0295a9906a"
-auth_token = "875812ca149039517660b28358ae5235"
+account_sid = "twlio account sid"
+auth_token = "twilio token"
 
 # Uzyskanie daty wczorajszej i przedwczorajszej
 today = dt.date.today()
@@ -14,10 +14,10 @@ STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
 
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
-stock_app_id = "0H5MP1SI7K8GW0VD"
+stock_app_id = "app id"
 
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
-news_app_id = "a91c9be56b444c2488fa11793518744c"
+news_app_id = "news id"
 
 
 # STEP 1: Use https://newsapi.org/docs/endpoints/everything
@@ -65,8 +65,8 @@ for news in news_data:
         message = client.messages \
             .create(
                 body=message,
-                from_='+48732106918',
-                to='+48666532414'
+                from_='number',
+                to='number'
             )
     else:
         message = f"""
@@ -77,6 +77,6 @@ for news in news_data:
         message = client.messages \
             .create(
                 body=message,
-                from_='+48732106918',
-                to='+48666532414'
+                from_='number',
+                to='number'
             )
