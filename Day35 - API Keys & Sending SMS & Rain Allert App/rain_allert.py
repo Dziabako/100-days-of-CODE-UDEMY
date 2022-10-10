@@ -6,13 +6,13 @@ from twilio.rest import Client
 # from twilio.http.http_client import TwilioHttpClient
 
 # To jest do twilio
-account_sid = "AC4d1a0b54cc08ca9c1bc68f0295a9906a"
-auth_token = "875812ca149039517660b28358ae5235"
+account_sid = "twilio account sid"
+auth_token = "twilio account token"
 
 parameters = {
     "lat": 52.313881,
     "lon": 15.082800,
-    "appid": "da362036b4d95fe3d212eefdbb1b2fa0",
+    "appid": "appid",
     "exclude": "current,minutely,daily"
 }
 
@@ -42,6 +42,6 @@ if will_rain:
     message = client.messages \
         .create(
             body="Take an umbrella. It's going to rain",
-            from_='+48732106918',
-            to='+48666532414'
+            from_='number',
+            to='number'
         )
