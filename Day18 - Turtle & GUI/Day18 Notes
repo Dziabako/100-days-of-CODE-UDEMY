@@ -1,0 +1,36 @@
+zeby kod sie poprawnie wykonal obiekty i ich metody musze byc odpowiednio ulozone
+tzn musza byc w takiej kolejnosci w jakiej je stworzylismy
+
+Moduly mozna importowac takze w ten sposob
+from random import *
+w ten sposob nie musimy pisac calych formul na wywolanie danej metody
+mozemy wtedy napisac: choice, random, randint itd
+nie trzeba tego poprzedzac random.metoda()
+dodatkowo w ten sposob sa dostepne wxszystkie metody z danego modulu
+jest to praktyczne, lecz troche to myli poniewaz skad dana metoda pochodzi
+lepiej tego unikac
+
+lepiej importowac moduly w tradycyjny sposob
+lub jesli mamy tylko jedna metode to mozna tak zrobic
+
+# import colorgram as c
+# WYDOBYWANIE KOLOROW Z OBRAZU JPG
+# colors = c.extract('pobrane.jpg', 255)
+# rgb_color_list = []
+#
+# # MOJE ROZWIAZANIE
+# # number_of_colors = len(colors)
+# # for n in range(number_of_colors):
+# #     r = colors[n].rgb.r
+# #     g = colors[n].rgb.g
+# #     b = colors[n].rgb.b
+# #     color_tuple = (r, g, b)
+# #     color_list.append(color_tuple)
+#
+# # ROZWIAZANIE Z KURSU
+# for color in colors:
+#     r = color.rgb.r
+#     g = color.rgb.g
+#     b = color.rgb.b
+#     color_tuple = (r, g, b)
+#     rgb_color_list.append(color_tuple)

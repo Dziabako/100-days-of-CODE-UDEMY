@@ -1,0 +1,10 @@
+Przy dziedziczeniu klas uzywamy metody super()__init__()
+W ten sposob nowa klasa dziedziczy wszytkie atrybuty z klasy wyzszej
+Dziedziczymy w ten sposob rowniez wszystkie metody z klasy wyzszej
+
+Jezeli w klasie dziedziczacej zrobimy nowa metoda o tej samej nazwie i chcemy dodac do niej nowe funkcje
+To przy tworzeniu metody musimy uzyc takiej formuly:
+def metoda(self):
+    super().metoda() - tutaj wpisywana jest nazwa metody z klasy wyzszej
+
+Uzywanie super() przy dziedziczeniu nie jest az tak bardzo wymagane

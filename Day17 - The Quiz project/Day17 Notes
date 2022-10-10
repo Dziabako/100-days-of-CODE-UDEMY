@@ -1,0 +1,6 @@
+Atrybuty do klasy mozemy dodawac poza klasa
+robi sie to w taki sposob
+klasa.atrybut = wartosc
+
+Definiujac atrybuty zmienne nie musza byc one tak samo nazywane
+np.: self.item = przedmiot

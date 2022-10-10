@@ -1,0 +1,14 @@
+screen.listen() - jest to metoda, która sprawia ze program czeka na input z klawiatury
+
+Przy dodawaniu funkcji jako argument do druguej funkcji nie podajemy wtedy '()' do funkcji, ktora jest argumentem
+HIGHER ORDER FUNCTION - jest to koncept zakladajacy, ze funckja moze dzialac z innymi funkcjami
+Sprowadza sie to do tego ze w jednej funckji dajemy inna funkcje jako argument
+W ten sposob obie funkcje ze soba wspolpracuja
+
+W turtle jesli znamy wymiary okna mozemy okreslic pozycje w latwy sposob
+Zawsze startujemy w pozycji (0, 0)
+Wiec przykladowo przy oknie 500 na 400
+Y = 200 / -200
+X = 250 / -250
+
+Przy tworzeniu obiektu mozemy zdefinoowac wczesniej niektore atrybuty

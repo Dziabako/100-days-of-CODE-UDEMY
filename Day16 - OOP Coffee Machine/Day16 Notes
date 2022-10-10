@@ -1,0 +1,35 @@
+programowanie proceduralne - metoda programowania polegająca na tworzeniu okreslonych funkcji
+Ktore nastepnie wykonyja okreslone zadania
+Komputer pracuje od gory do dolu i wskakuje w okreslone funkcje pokolei
+tego typu programowanie jest jednym z pierwszych apradygmatow programowania
+
+OOP zaklada mozliwosc podzielenia duzych projektow na mniejsze elementy, nad ktorymi mozna pracowac osobno
+Jest to bardziej przydatne do tworzenia duzych projektow
+
+jest to modul graficzny dobry do nauki programowania
+DO SPRAWDZENIA POZNIEJ
+from turtle import Turtle, Screen
+
+timmy = Turtle()
+timmy.shape("turtle")
+timmy.color("blue")
+timmy.forward(100)
+
+my_screen = Screen()
+my_screen.exitonclick()
+
+pypi.org - strona z Python packages
+
+modul do rysowania tabel w ASCII
+from prettyTables import Table
+table = Table()
+
+table.add_column('Pokemon name', ["Pikachu", "Squirtle", "Charmander"])
+table.add_column('Type', ["Electric", "Water", "Fire"])
+
+print(table)
+
+w replit jest kod z kursu
+ten początkowy oraz koncowy
+
+
