@@ -1,0 +1,55 @@
+BeautifulSoup jest modulem do wyciagania danych z stron HTML oraz plikow XML
+
+from bs4 import BeautifulSoup
+
+with open("website.html") as file:
+    contents = file.read()
+
+# Jako dane do obiektu podajemy tekst z pliku i rodzaj pliku z jakiego bierzemy dane
+# Czasami moze byc potrzebny inny parser jak lxml dlatego trzeba pobrac odpowiedni modul do tego
+soup = BeautifulSoup(contents, "html.parser")
+
+# Uzyskanie title tag
+print(soup.title)
+
+# Title - czyli nazwe tagu
+print(soup.title.name)
+
+# String - zawartosc danego tagu
+print(soup.title.string)
+
+# Wyswietalnie calej zawartosci pliku
+print(soup)
+
+# Wstawianie tabulatorow do outputu
+print(soup.prettify())
+
+# Wszystkie okreslone tagi / zwraca liste z okreslonymi tagami / find_all zwraca wszystkie pasujace tagi
+all_anchor_tags = soup.find_all(name="a")
+print(all_anchor_tags)
+
+# uzyskiwanie tekstu z wszystkich okreslonych tagow
+for tag in all_anchor_tags:
+    print(tag.getText())
+
+# Uzyskiwanie linkow z tagow / przy get podajemy nazwe atrybutu ktory chcemy uzyskac
+for tag in all_anchor_tags:
+    print(tag.get("href"))
+
+# Wyszukiwanie po nazwie atrybutu / find szuka tylko pierwszego pasujacego elementu
+heading = soup.find(name="h1", id="name")
+print(heading)
+
+section_heading = soup.find(name="h3", class_="heading")
+print(section_heading)
+
+# Uzyskiwanie konkretnego linku ze strony / css selector / kolejnosc ma znaczenie w selector gdzie znajduje sie link
+company_url = soup.select_one(selector="p a")
+print(company_url)
+
+# Uzyskiwanie za pomoca selectora przy uzyciu id / W takim przypadku przy nazwie id musi byc # / przy klasie jest '.' (selector=".class")
+name = soup.select_one(selector="#name")
+print(name)
+
+
+strona.com/robots.txt - w ten sposob mozemy zobaczyc jakie dane strona pozwala nam zbierac
