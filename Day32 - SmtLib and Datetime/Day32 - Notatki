@@ -32,7 +32,7 @@ W tym celu rowniez generujemy specjalne haslo dostepu do uslugi przez inne aplik
 import smtplib
 
 my_email = "dawidtest315@gmail.com"
-password = "ahbzwewvvugqmmig"
+password = "password"
 
 
 ## Tworzenie nowego obiektu smtlib do polaczenia z serwerem (w nawiasie podajemy dostawce uslugi)
