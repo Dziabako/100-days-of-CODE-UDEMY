@@ -1,0 +1,80 @@
+Do oblsugi selenium w Python nalezy zainstalowac odpowiedni modul
+
+Selenium webdriver to sterownik ktory pozwala nam na automatyzacje testow aplikacji webowych
+Opisane to jest w materialach ze studiow podyplomowych (repozytorium na github)
+
+from selenium import webdriver
+
+# Rozwiazanie z kursu juz nie dziala / WYkorzystywane jest to do wyszukiwania elementow na stronie
+from selenium.webdriver.common.by import By
+
+chrome_driver_path = "D:\PYTHON PROJEKTY\chromedriver\chromedriver.exe"
+
+# Tworzenie obiektu sterownika przegladarki / moze byc inna przegladarka jesli mamy odpowiedni webdriver
+driver = webdriver.Chrome(executable_path=chrome_driver_path)
+
+# Otworzenie strony przy uzyciu sterownika
+driver.get("https://www.amazon.com")
+
+# Uzyskanie danego elementu ze strony za pomoca nazwy klasy / Mozna szukac przy pomocy innych elementow
+(ID = "id"
+NAME = "name"
+XPATH = "xpath"
+LINK_TEXT = "link text"
+PARTIAL_LINK_TEXT = "partial link text"
+TAG_NAME = "tag name"
+CLASS_NAME = "class name"
+CSS_SELECTOR = "css selector")
+
+
+price = driver.find_element(By.CLASS_NAME, "a-price-whole")
+print(price.text)
+
+Zwracany element jest obiektem selenium i trzeba okreslic co potrzebujemy (np. text)
+
+# Uzyskanie elementu za pomoca css selector / uzyta jest nazwa clasu z css selectora i kolejny css selector ktory szukamy
+documentation_link = driver.find_element(
+    By.CSS_SELECTOR, ".documentation-widget a"
+    )
+print(documentation_link.text)
+
+# Uzyskanie elementu z wykorzystaniem XPATH / XPATH elementu uzyskamy klikajac prawym klawiszem myszy na dany element i kopiujac XPATH
+bug_link = driver.find_element(By.XPATH, '//*[@id="site-map"]/div[2]/div/ul/li[3]/a')
+print(bug_link.text)
+
+# Zamykanie przegladarki (pojedynczej zakladki)
+driver.close()
+
+# Zamykanie calej przegladarki (calego programu)
+driver.quit()
+
+
+
+### INTERAKCJE ###
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+# Modul selenium do obslugi klawiszy
+from selenium.webdriver.common.keys import Keys
+
+chrome_driver_path = "D:\PYTHON PROJEKTY\chromedriver\chromedriver.exe"
+driver = webdriver.Chrome(executable_path=chrome_driver_path)
+driver.get("https://en.wikipedia.org/wiki/Main_Page")
+
+article_count = driver.find_element(By.XPATH, '//*[@id="articlecount"]/a[1]')
+
+# Klikanie wybranego elementu (wczesniej znalezionego)
+article_count.click()
+
+# To samo co wczesnije tylko latwiejsze szukanie danego elementu
+all_portals = driver.find_element(By.LINK_TEXT, "English")
+all_portals.click()
+
+# Pisanie w polu / Nastepnie wciskanie ENTER
+search = driver.find_element(By.NAME, "search")
+search.send_keys("Python")
+search.send_keys(Keys.ENTER)
+
+driver.quit()
+
